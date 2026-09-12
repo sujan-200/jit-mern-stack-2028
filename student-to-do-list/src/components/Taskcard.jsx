@@ -1,3 +1,5 @@
+import DelTask from "./DelTask";
+
 function Taskcard(props){
     const isCompleted = props.status === "completed";
     return(
@@ -7,13 +9,17 @@ function Taskcard(props){
                     {isCompleted ? '✓' : '○'} {props.title}
                 </h3>
                 <p>{props.description}</p>
+                <p style={{fontSize: '12px', color: '#999'}}>Task ID: {props.id}</p>
                 <p style={{fontSize: '12px', color: isCompleted ? '#90EE90' : '#FFA500'}}>
                     Status: {props.status}
                 </p>
             </div>
-            <button onClick={props.onToggle} style={{marginLeft: '15px', whiteSpace: 'nowrap'}}>
-                {isCompleted ? '↩ Pending' : '✓ Complete'}
-            </button>
+            <div style={{display: 'flex', gap: '10px', marginLeft: '15px'}}>
+                <button onClick={props.onToggle} style={{whiteSpace: 'nowrap'}}>
+                    {isCompleted ? '↩ Pending' : '✓ Complete'}
+                </button>
+                <DelTask taskId={props.id} onDelete={props.onDelete}/>
+            </div>
         </div>
     );
 }

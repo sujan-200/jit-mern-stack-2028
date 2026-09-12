@@ -1,9 +1,11 @@
 import { useState } from "react";
+
 function AddTask(props){
     const[title,setTitle]=useState("");
     const[description,setDescription]=useState(""); 
     function handleSubmit(e){
         e.preventDefault();
+        
         if(!title.trim()) {
             alert("Please enter a task title");
             return;
@@ -20,7 +22,7 @@ function AddTask(props){
     }
     return(
         <div className="add-task-container">
-            <h2>✨ Add New Task</h2>
+            <h2>Add New Task</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="title">Task Title *</label>
@@ -42,7 +44,7 @@ function AddTask(props){
                         onChange={(e)=>setDescription(e.target.value)}
                     />
                 </div>
-                <button type="submit">➕ Add Task</button>
+                <button type="submit"> Add Task</button>
             </form>
         </div>
     );

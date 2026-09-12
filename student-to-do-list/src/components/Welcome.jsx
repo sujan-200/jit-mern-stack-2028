@@ -1,11 +1,43 @@
-function Welcome({ tasks = [] }) {
-    const completed = tasks.filter((task) => task.status === "completed").length;
-    const percentage = tasks.length ? Math.round((completed / tasks.length) * 100) : 0;
+import { Link } from "react-router-dom";
 
+function Welcome() {
     return (
         <section className="welcome">
-            <h1>Welcome to the Student Task Portal</h1>
-            
+            <div className="welcome-container">
+                <h1>Welcome to Task Master</h1>
+                <p className="welcome-subtitle">Your Personal Task Management Portal</p>
+                <p className="welcome-description">
+                    Stay organized, boost productivity, and never miss a deadline. 
+                    Manage all your tasks in one beautiful, intuitive place.
+                </p>
+
+                <div className="welcome-cards">
+                    <div className="welcome-card">
+                        <div className="welcome-card-icon">📊</div>
+                        <h3>Dashboard</h3>
+                        <p>View your tasks at a glance with statistics and insights</p>
+                    </div>
+                    <div className="welcome-card">
+                        <div className="welcome-card-icon">✅</div>
+                        <h3>Task Management</h3>
+                        <p>Create, complete, and delete tasks with ease</p>
+                    </div>
+                    <div className="welcome-card">
+                        <div className="welcome-card-icon">📋</div>
+                        <h3>Task Details</h3>
+                        <p>Get detailed information about each of your tasks</p>
+                    </div>
+                </div>
+
+                <div className="welcome-cta">
+                    <Link to="/dashboard" className="welcome-btn welcome-btn-primary">
+                        Go to Dashboard →
+                    </Link>
+                    <Link to="/tasks" className="welcome-btn welcome-btn-secondary">
+                        View All Tasks
+                    </Link>
+                </div>
+            </div>
         </section>
     );
 }

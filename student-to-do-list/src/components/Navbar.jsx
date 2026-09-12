@@ -1,10 +1,13 @@
+import { Link, NavLink } from "react-router-dom";
+
 function Navbar(){
     return(
         <nav>
             <h2>Student Task Portal</h2>
             <div className="nav-links">
-                <a href="#">Dashboard</a>
-                <a href="#">Add Task</a>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/tasks">Tasks</NavLink>
             </div>
 
         </nav>
